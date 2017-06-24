@@ -2,12 +2,14 @@
   <app-game-controller (eventCreated)="onEventCreated($event)"></app-game-controller>
   <div class="row">
     <div class="col-xs-7">
-      <app-odd *ngFor="let odd of odds">
+      <app-odd *ngFor="let odd of odds"
+                [myVal] = odd>
 
       </app-odd>
     </div>
     <div class="col-xs-5">
-      <app-even *ngFor="let even of evens">
+      <app-even *ngFor="let even of evens"
+                [myVal] = even>
 
       </app-even>
     </div>
