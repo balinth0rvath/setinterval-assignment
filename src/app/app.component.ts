@@ -1,3 +1,4 @@
+import { EmitNum } from './emit-num';
 import { Component } from '@angular/core';
 
 @Component({
@@ -12,9 +13,9 @@ evens:number[] = [4,3];
 
   title = 'app works!';
 
-  onEventCreated(o:{emitNum:number}) {
+  onEventCreated(o:EmitNum) {
 
-    var i = o.emitNum;
+    var i = o.counter;
     switch (i % 2)
     {
       case 0:
@@ -27,7 +28,7 @@ evens:number[] = [4,3];
       break;
     }
   
-    console.log("event created"+o.emitNum);
+    console.log("event created"+o.counter);
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { EmitNum } from '../../emit-num'
 
 @Component({
   selector: 'app-game-controller',
@@ -11,7 +12,7 @@ export class GameControllerComponent implements OnInit {
   
   private timerReference;
 
-  @Output() eventCreated = new EventEmitter<{emitNum:number}>();
+  @Output() eventCreated = new EventEmitter<EmitNum>();
    
   @Output('counter') i:number;
 
@@ -23,7 +24,11 @@ export class GameControllerComponent implements OnInit {
   {
     console.log("star pushed");
     this.timerReference= setInterval(
-      ()=>{console.log("time"+(++this.i));this.eventCreated.emit({ emitNum:this.i });},400);
+      ()=>{
+          console.log("time"+(++this.i));
+          var counter:EmitNum = new EmitNum();
+          counter.counter = this.i;
+          this.eventCreated.emit(counter);},400);
     
   }
 
